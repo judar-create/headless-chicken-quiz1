@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Headless Chicken Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f5f5f5;
+    }
+    .page {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .question {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .answers button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .slider {
+      margin: 20px 0;
+    }
+    .finish-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #ff003d;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Seite 1 -->
+  <div id="page1" class="page active">
+    <h1>Are you a headless chicken? Take this test to find out!</h1>
+    <div class="question">When you see your jgl gank. what do you do?</div>
+    <div class="answers">
+      <button onclick="nextPage(2)">I recall base and pretend I didn’t see anything.</button>
+      <button onclick="nextPage(2)">I ignore and farm and let my jgl die.</button>
+      <button onclick="nextPage(2)">Go in, die and spam "?" on body.</button>
+      <button onclick="nextPage(2)">Forget how my brain works and just drool.</button>
+    </div>
+  </div>
+
+  <!-- Seite 2 -->
+  <div id="page2" class="page">
+    <div class="question">Wieso bist du hardstuck?</div>
+    <div class="answers">
+      <button onclick="nextPage(3)">I 1v9 every game and blame everything on my monkey teammates.</button>
+      <button onclick="nextPage(3)">I play with one hand and I'm stupid.</button>
+      <button onclick="nextPage(3)">My gamesense and mechs are faker level but matchmaking is ass.</button>
+      <button onclick="nextPage(3)">If I tried I’d be world champ and chall.</button>
+    </div>
+  </div>
+
+  <!-- Seite 3 -->
+  <div id="page3" class="page">
+    <div class="question">What is your IQ?</div>
+    <input type="range" min="10" max="47" value="20" class="slider" id="iqSlider">
+    <div>
+      <button class="finish-btn" onclick="nextPage(4)">Finish</button>
+    </div>
+  </div>
+
+  <!-- Seite 4 (Ergebnis) -->
+  <div id="page4" class="page">
+    <h1>🎉 Congratulations!!</h1>
+    <h2>YOU are a headless chicken!!!</h2>
+  </div>
+
+  <script>
+    function nextPage(pageNumber) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page' + pageNumber).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
